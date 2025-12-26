@@ -20,11 +20,14 @@ package scheme
 import (
 	auditregistrationv1alpha1 "github.com/kwok-ci/kectl/pkg/old/apis/auditregistration/v1alpha1"
 	batchv2alpha1 "github.com/kwok-ci/kectl/pkg/old/apis/batch/v2alpha1"
+	coordinationv1alpha1 "github.com/kwok-ci/kectl/pkg/old/apis/coordination/v1alpha1"
 	discoveryv1alpha1 "github.com/kwok-ci/kectl/pkg/old/apis/discovery/v1alpha1"
 	flowcontrolv1alpha1 "github.com/kwok-ci/kectl/pkg/old/apis/flowcontrol/v1alpha1"
+	networkingv1alpha1 "github.com/kwok-ci/kectl/pkg/old/apis/networking/v1alpha1"
 	resourcev1alpha1 "github.com/kwok-ci/kectl/pkg/old/apis/resource/v1alpha1"
 	resourcev1alpha2 "github.com/kwok-ci/kectl/pkg/old/apis/resource/v1alpha2"
 	settingsv1alpha1 "github.com/kwok-ci/kectl/pkg/old/apis/settings/v1alpha1"
+	storagemigrationv1alpha1 "github.com/kwok-ci/kectl/pkg/old/apis/storagemigration/v1alpha1"
 	"k8s.io/apimachinery/pkg/runtime"
 )
 
@@ -32,9 +35,12 @@ import (
 func AddToScheme(scheme *runtime.Scheme) {
 	_ = auditregistrationv1alpha1.AddToScheme(scheme)
 	_ = batchv2alpha1.AddToScheme(scheme)
+	_ = coordinationv1alpha1.AddToScheme(scheme)
 	_ = discoveryv1alpha1.AddToScheme(scheme)
 	_ = flowcontrolv1alpha1.AddToScheme(scheme)
+	_ = networkingv1alpha1.AddToScheme(scheme)
 	_ = resourcev1alpha1.AddToScheme(scheme)
 	_ = resourcev1alpha2.AddToScheme(scheme)
 	_ = settingsv1alpha1.AddToScheme(scheme)
+	_ = storagemigrationv1alpha1.AddToScheme(scheme)
 }

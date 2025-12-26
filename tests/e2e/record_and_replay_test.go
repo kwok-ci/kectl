@@ -10,6 +10,7 @@ func TestRecordAndReplay(t *testing.T) {
 	// Record a snapshot
 	recordCmd := exec.Command(kectl,
 		"--endpoints="+endpoint,
+		"snapshot",
 		"record",
 		"--path=./snapshot.yaml",
 		"--snapshot=true",
@@ -23,6 +24,7 @@ func TestRecordAndReplay(t *testing.T) {
 	// Replay the recorded snapshot
 	replayCmd := exec.Command(kectl,
 		"--endpoints="+endpoint,
+		"snapshot",
 		"replay",
 		"--path=./snapshot.yaml",
 		"--snapshot=true",
