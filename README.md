@@ -48,5 +48,5 @@ kubectl get services -n default kubernetes
 ### Delete data
 
 ``` bash
-kectl del services -n default kubernetes
+kectl delete services -n default kubernetes
 ```
