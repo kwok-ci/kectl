@@ -36,7 +36,7 @@ type ResourceClaim struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Spec describes the desired attributes of a resource that then needs
 	// to be allocated. It can only be set once when creating the
@@ -46,7 +46,7 @@ type ResourceClaim struct {
 	// Status describes whether the resource is available and with which
 	// attributes.
 	// +optional
-	Status ResourceClaimStatus `json:"status,omitempty" protobuf:"bytes,3,opt,name=status"`
+	Status ResourceClaimStatus `json:"status" protobuf:"bytes,3,opt,name=status"`
 }
 
 // ResourceClaimSpec defines how a resource is to be allocated.
@@ -171,7 +171,7 @@ type ResourceClaimList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of resource claims.
 	Items []ResourceClaim `json:"items" protobuf:"bytes,2,rep,name=items"`
@@ -191,14 +191,14 @@ type PodScheduling struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Spec describes where resources for the Pod are needed.
 	Spec PodSchedulingSpec `json:"spec" protobuf:"bytes,2,name=spec"`
 
 	// Status describes where resources for the Pod can be allocated.
 	// +optional
-	Status PodSchedulingStatus `json:"status,omitempty" protobuf:"bytes,3,opt,name=status"`
+	Status PodSchedulingStatus `json:"status" protobuf:"bytes,3,opt,name=status"`
 }
 
 // PodSchedulingSpec describes where resources for the Pod are needed.
@@ -269,7 +269,7 @@ type PodSchedulingList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of PodScheduling objects.
 	Items []PodScheduling `json:"items" protobuf:"bytes,2,rep,name=items"`
@@ -289,7 +289,7 @@ type ResourceClass struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// DriverName defines the name of the dynamic resource driver that is
 	// used for allocation of a ResourceClaim that uses this class.
@@ -323,7 +323,7 @@ type ResourceClassList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of resource classes.
 	Items []ResourceClass `json:"items" protobuf:"bytes,2,rep,name=items"`
@@ -391,7 +391,7 @@ type ResourceClaimTemplate struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Describes the ResourceClaim that is to be generated.
 	//
@@ -407,7 +407,7 @@ type ResourceClaimTemplateSpec struct {
 	// when creating it. No other fields are allowed and will be rejected during
 	// validation.
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Spec for the ResourceClaim. The entire content is copied unchanged
 	// into the ResourceClaim that gets created from this template. The
@@ -423,7 +423,7 @@ type ResourceClaimTemplateList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of resource claim templates.
 	Items []ResourceClaimTemplate `json:"items" protobuf:"bytes,2,rep,name=items"`

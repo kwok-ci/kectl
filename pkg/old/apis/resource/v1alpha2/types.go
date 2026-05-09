@@ -43,7 +43,7 @@ type ResourceClaim struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Spec describes the desired attributes of a resource that then needs
 	// to be allocated. It can only be set once when creating the
@@ -53,7 +53,7 @@ type ResourceClaim struct {
 	// Status describes whether the resource is available and with which
 	// attributes.
 	// +optional
-	Status ResourceClaimStatus `json:"status,omitempty" protobuf:"bytes,3,opt,name=status"`
+	Status ResourceClaimStatus `json:"status" protobuf:"bytes,3,opt,name=status"`
 }
 
 // ResourceClaimSpec defines how a resource is to be allocated.
@@ -215,14 +215,14 @@ type StructuredResourceHandle struct {
 	// from the resource class at the time that the claim was allocated.
 	//
 	// +optional
-	VendorClassParameters runtime.RawExtension `json:"vendorClassParameters,omitempty" protobuf:"bytes,1,opt,name=vendorClassParameters"`
+	VendorClassParameters runtime.RawExtension `json:"vendorClassParameters" protobuf:"bytes,1,opt,name=vendorClassParameters"`
 
 	// VendorClaimParameters are the per-claim configuration parameters
 	// from the resource claim parameters at the time that the claim was
 	// allocated.
 	//
 	// +optional
-	VendorClaimParameters runtime.RawExtension `json:"vendorClaimParameters,omitempty" protobuf:"bytes,2,opt,name=vendorClaimParameters"`
+	VendorClaimParameters runtime.RawExtension `json:"vendorClaimParameters" protobuf:"bytes,2,opt,name=vendorClaimParameters"`
 
 	// NodeName is the name of the node providing the necessary resources
 	// if the resources are local to a node.
@@ -243,7 +243,7 @@ type DriverAllocationResult struct {
 	// from the time that the claim was allocated.
 	//
 	// +optional
-	VendorRequestParameters runtime.RawExtension `json:"vendorRequestParameters,omitempty" protobuf:"bytes,1,opt,name=vendorRequestParameters"`
+	VendorRequestParameters runtime.RawExtension `json:"vendorRequestParameters" protobuf:"bytes,1,opt,name=vendorRequestParameters"`
 
 	AllocationResultModel `json:",inline" protobuf:"bytes,2,name=allocationResultModel"`
 }
@@ -264,7 +264,7 @@ type ResourceClaimList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of resource claims.
 	Items []ResourceClaim `json:"items" protobuf:"bytes,2,rep,name=items"`
@@ -284,14 +284,14 @@ type PodSchedulingContext struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Spec describes where resources for the Pod are needed.
 	Spec PodSchedulingContextSpec `json:"spec" protobuf:"bytes,2,name=spec"`
 
 	// Status describes where resources for the Pod can be allocated.
 	// +optional
-	Status PodSchedulingContextStatus `json:"status,omitempty" protobuf:"bytes,3,opt,name=status"`
+	Status PodSchedulingContextStatus `json:"status" protobuf:"bytes,3,opt,name=status"`
 }
 
 // PodSchedulingContextSpec describes where resources for the Pod are needed.
@@ -362,7 +362,7 @@ type PodSchedulingContextList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of PodSchedulingContext objects.
 	Items []PodSchedulingContext `json:"items" protobuf:"bytes,2,rep,name=items"`
@@ -382,7 +382,7 @@ type ResourceClass struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// DriverName defines the name of the dynamic resource driver that is
 	// used for allocation of a ResourceClaim that uses this class.
@@ -421,7 +421,7 @@ type ResourceClassList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of resource classes.
 	Items []ResourceClass `json:"items" protobuf:"bytes,2,rep,name=items"`
@@ -489,7 +489,7 @@ type ResourceClaimTemplate struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Describes the ResourceClaim that is to be generated.
 	//
@@ -505,7 +505,7 @@ type ResourceClaimTemplateSpec struct {
 	// when creating it. No other fields are allowed and will be rejected during
 	// validation.
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Spec for the ResourceClaim. The entire content is copied unchanged
 	// into the ResourceClaim that gets created from this template. The
@@ -521,7 +521,7 @@ type ResourceClaimTemplateList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of resource claim templates.
 	Items []ResourceClaimTemplate `json:"items" protobuf:"bytes,2,rep,name=items"`
@@ -538,7 +538,7 @@ type ResourceSlice struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// NodeName identifies the node which provides the resources
 	// if they are local to a node.
@@ -573,7 +573,7 @@ type ResourceSliceList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of node resource capacity objects.
 	Items []ResourceSlice `json:"items" protobuf:"bytes,2,rep,name=items"`
@@ -588,7 +588,7 @@ type ResourceSliceList struct {
 type ResourceClaimParameters struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// If this object was created from some other resource, then this links
 	// back to that resource. This field is used to find the in-tree representation
@@ -622,7 +622,7 @@ type DriverRequests struct {
 	// claim. They are ignored while allocating the claim.
 	//
 	// +optional
-	VendorParameters runtime.RawExtension `json:"vendorParameters,omitempty" protobuf:"bytes,2,opt,name=vendorParameters"`
+	VendorParameters runtime.RawExtension `json:"vendorParameters" protobuf:"bytes,2,opt,name=vendorParameters"`
 
 	// Requests describes all resources that are needed from the driver.
 	// +listType=atomic
@@ -635,7 +635,7 @@ type ResourceRequest struct {
 	// resource. They are ignored while allocating a claim.
 	//
 	// +optional
-	VendorParameters runtime.RawExtension `json:"vendorParameters,omitempty" protobuf:"bytes,1,opt,name=vendorParameters"`
+	VendorParameters runtime.RawExtension `json:"vendorParameters" protobuf:"bytes,1,opt,name=vendorParameters"`
 
 	ResourceRequestModel `json:",inline" protobuf:"bytes,2,name=resourceRequestModel"`
 }
@@ -656,7 +656,7 @@ type ResourceClaimParametersList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of node resource capacity objects.
 	Items []ResourceClaimParameters `json:"items" protobuf:"bytes,2,rep,name=items"`
@@ -671,7 +671,7 @@ type ResourceClaimParametersList struct {
 type ResourceClassParameters struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object metadata
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// If this object was created from some other resource, then this links
 	// back to that resource. This field is used to find the in-tree representation
@@ -718,7 +718,7 @@ type ResourceClassParametersList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is the list of node resource capacity objects.
 	Items []ResourceClassParameters `json:"items" protobuf:"bytes,2,rep,name=items"`
@@ -733,5 +733,5 @@ type VendorParameters struct {
 	// allocating a claim.
 	//
 	// +optional
-	Parameters runtime.RawExtension `json:"parameters,omitempty" protobuf:"bytes,2,opt,name=parameters"`
+	Parameters runtime.RawExtension `json:"parameters" protobuf:"bytes,2,opt,name=parameters"`
 }

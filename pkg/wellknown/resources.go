@@ -485,6 +485,38 @@ var resources = []resource{
 	},
 	{
 		Names: []string{
+			"deviceclasses",
+			"deviceclass",
+		},
+		Namespaced: false,
+		Group:      "resource.k8s.io",
+	},
+	{
+		Names: []string{
+			"resourceclaims",
+			"resourceclaim",
+		},
+		Namespaced: true,
+		Group:      "resource.k8s.io",
+	},
+	{
+		Names: []string{
+			"resourceclaimtemplates",
+			"resourceclaimtemplate",
+		},
+		Namespaced: true,
+		Group:      "resource.k8s.io",
+	},
+	{
+		Names: []string{
+			"resourceslices",
+			"resourceslice",
+		},
+		Namespaced: false,
+		Group:      "resource.k8s.io",
+	},
+	{
+		Names: []string{
 			"priorityclasses",
 			"priorityclass",
 			"pc",
@@ -529,6 +561,15 @@ var resources = []resource{
 		Names: []string{
 			"volumeattachments",
 			"volumeattachment",
+		},
+		Namespaced: false,
+		Group:      "storage.k8s.io",
+	},
+	{
+		Names: []string{
+			"volumeattributesclasses",
+			"volumeattributesclass",
+			"vac",
 		},
 		Namespaced: false,
 		Group:      "storage.k8s.io",

@@ -65,10 +65,10 @@ const (
 type AuditSink struct {
 	metav1.TypeMeta `json:",inline"`
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Spec defines the audit configuration spec
-	Spec AuditSinkSpec `json:"spec,omitempty" protobuf:"bytes,2,opt,name=spec"`
+	Spec AuditSinkSpec `json:"spec" protobuf:"bytes,2,opt,name=spec"`
 }
 
 // AuditSinkSpec holds the spec for the audit sink
@@ -88,7 +88,7 @@ type AuditSinkSpec struct {
 type AuditSinkList struct {
 	metav1.TypeMeta `json:",inline"`
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// List of audit configurations.
 	Items []AuditSink `json:"items" protobuf:"bytes,2,rep,name=items"`

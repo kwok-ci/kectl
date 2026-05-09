@@ -204,10 +204,7 @@ func (l *Loader) handleResourcePatch(ctx context.Context, resourcePatch *handle.
 			l.handlePause(ctx)
 		}
 
-		step := time.Second
-		if step > d {
-			step = d
-		}
+		step := min(time.Second, d)
 		d -= step
 
 		// Adjusting speed
@@ -343,7 +340,7 @@ func (l *Loader) patchData(ctx context.Context, gvr schema.GroupVersionResource,
 		return fmt.Errorf("failed to lookup patch meta: %w", err)
 	}
 
-	m := map[string]interface{}{}
+	m := map[string]any{}
 	err = json.Unmarshal(patchData, &m)
 	if err != nil {
 		return fmt.Errorf("failed to unmarshal patch data: %w", err)

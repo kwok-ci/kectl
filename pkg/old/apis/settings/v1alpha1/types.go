@@ -29,17 +29,17 @@ import (
 type PodPreset struct {
 	metav1.TypeMeta `json:",inline"`
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// +optional
-	Spec PodPresetSpec `json:"spec,omitempty" protobuf:"bytes,2,opt,name=spec"`
+	Spec PodPresetSpec `json:"spec" protobuf:"bytes,2,opt,name=spec"`
 }
 
 // PodPresetSpec is a description of a pod preset.
 type PodPresetSpec struct {
 	// Selector is a label query over a set of resources, in this case pods.
 	// Required.
-	Selector metav1.LabelSelector `json:"selector,omitempty" protobuf:"bytes,1,opt,name=selector"`
+	Selector metav1.LabelSelector `json:"selector" protobuf:"bytes,1,opt,name=selector"`
 
 	// Env defines the collection of EnvVar to inject into containers.
 	// +optional
@@ -63,7 +63,7 @@ type PodPresetList struct {
 	// Standard list metadata.
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 
 	// Items is a list of schema objects.
 	Items []PodPreset `json:"items" protobuf:"bytes,2,rep,name=items"`

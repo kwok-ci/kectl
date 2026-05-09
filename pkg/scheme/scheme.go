@@ -34,8 +34,6 @@ import (
 	authorizationv1beta1 "k8s.io/api/authorization/v1beta1"
 	autoscalingv1 "k8s.io/api/autoscaling/v1"
 	autoscalingv2 "k8s.io/api/autoscaling/v2"
-	autoscalingv2beta1 "k8s.io/api/autoscaling/v2beta1"
-	autoscalingv2beta2 "k8s.io/api/autoscaling/v2beta2"
 	batchv1 "k8s.io/api/batch/v1"
 	batchv1beta1 "k8s.io/api/batch/v1beta1"
 	certificatesv1 "k8s.io/api/certificates/v1"
@@ -69,7 +67,7 @@ import (
 	resourcev1beta1 "k8s.io/api/resource/v1beta1"
 	resourcev1beta2 "k8s.io/api/resource/v1beta2"
 	schedulingv1 "k8s.io/api/scheduling/v1"
-	schedulingv1alpha1 "k8s.io/api/scheduling/v1alpha1"
+	schedulingv1alpha2 "k8s.io/api/scheduling/v1alpha2"
 	schedulingv1beta1 "k8s.io/api/scheduling/v1beta1"
 	storagev1 "k8s.io/api/storage/v1"
 	storagev1alpha1 "k8s.io/api/storage/v1alpha1"
@@ -96,8 +94,6 @@ func AddToScheme(scheme *runtime.Scheme) {
 	_ = authorizationv1beta1.AddToScheme(scheme)
 	_ = autoscalingv1.AddToScheme(scheme)
 	_ = autoscalingv2.AddToScheme(scheme)
-	_ = autoscalingv2beta1.AddToScheme(scheme)
-	_ = autoscalingv2beta2.AddToScheme(scheme)
 	_ = batchv1.AddToScheme(scheme)
 	_ = batchv1beta1.AddToScheme(scheme)
 	_ = certificatesv1.AddToScheme(scheme)
@@ -131,7 +127,7 @@ func AddToScheme(scheme *runtime.Scheme) {
 	_ = resourcev1beta1.AddToScheme(scheme)
 	_ = resourcev1beta2.AddToScheme(scheme)
 	_ = schedulingv1.AddToScheme(scheme)
-	_ = schedulingv1alpha1.AddToScheme(scheme)
+	_ = schedulingv1alpha2.AddToScheme(scheme)
 	_ = schedulingv1beta1.AddToScheme(scheme)
 	_ = storagemigrationv1beta1.AddToScheme(scheme)
 	_ = storagev1.AddToScheme(scheme)

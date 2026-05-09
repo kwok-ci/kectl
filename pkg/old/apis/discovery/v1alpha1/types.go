@@ -31,7 +31,7 @@ type EndpointSlice struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object's metadata.
 	// +optional
-	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ObjectMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 	// addressType specifies the type of address carried by this EndpointSlice.
 	// All addresses in this slice must be the same type. This field is
 	// immutable after creation. The following address types are currently
@@ -82,7 +82,7 @@ type Endpoint struct {
 	// +listType=set
 	Addresses []string `json:"addresses" protobuf:"bytes,1,rep,name=addresses"`
 	// conditions contains information about the current status of the endpoint.
-	Conditions EndpointConditions `json:"conditions,omitempty" protobuf:"bytes,2,opt,name=conditions"`
+	Conditions EndpointConditions `json:"conditions" protobuf:"bytes,2,opt,name=conditions"`
 	// hostname of this endpoint. This field may be used by consumers of
 	// endpoints to distinguish endpoints from each other (e.g. in DNS names).
 	// Multiple endpoints which use the same hostname should be considered
@@ -177,7 +177,7 @@ type EndpointSliceList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard list metadata.
 	// +optional
-	metav1.ListMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
+	metav1.ListMeta `json:"metadata" protobuf:"bytes,1,opt,name=metadata"`
 	// List of endpoint slices
 	Items []EndpointSlice `json:"items" protobuf:"bytes,2,rep,name=items"`
 }

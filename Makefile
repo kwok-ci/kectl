@@ -5,6 +5,8 @@ generate: \
 	pkg/scheme/scheme.go \
 	pkg/old/api \
 	pkg/old/scheme/scheme.go
+	go fmt ./...
+	go fix ./...
 
 pkg/scheme/scheme.go: ./hack/gen_scheme.sh go.mod
 	go mod vendor
@@ -12,7 +14,7 @@ pkg/scheme/scheme.go: ./hack/gen_scheme.sh go.mod
 	./hack/gen_scheme.sh > ./pkg/scheme/scheme.go
 
 pkg/old/api:
-	./hack/clone_old_apis.sh 35
+	./hack/clone_old_apis.sh 36
 
 pkg/old/scheme/scheme.go: ./hack/gen_old_scheme.sh pkg/old/apis go.mod
 	-rm ./pkg/old/scheme/scheme.go
