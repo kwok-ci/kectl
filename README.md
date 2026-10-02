@@ -39,7 +39,7 @@ kectl get
 
 ``` bash
 # change the creation time to very long ago
-kectl get services -n default kubernetes | sed 's/creationTimestamp: .*/creationTimestamp: "2006-01-02T15:04:05Z"/' | kectl put --path -
+kectl get services -n default kubernetes -o yaml | sed 's/creationTimestamp: .*/creationTimestamp: "2006-01-02T15:04:05Z"/' | kectl put --path -
 kubectl get services -n default kubernetes
 ```
 
