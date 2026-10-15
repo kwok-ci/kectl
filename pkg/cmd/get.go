@@ -125,7 +125,7 @@ func getCommand(ctx context.Context, etcdclient client.Client, flags *getFlagpol
 		)
 	}
 
-	if flags.Watch {
+	if flags.Watch || flags.WatchOnly {
 		var rev int64
 		if !flags.WatchOnly {
 			rev, err = etcdclient.Get(ctx, flags.Prefix,
